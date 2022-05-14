@@ -107,7 +107,7 @@ namespace DebugAPI_IMPL
 				std::vsnprintf(buf.data(), buf.size(), fmt.c_str(), args);
 				va_end(args);
 
-				logger::info("{}"sv, buf.data());
+				//logger::info("{}"sv, buf.data());
 			}
 		};
 	};
