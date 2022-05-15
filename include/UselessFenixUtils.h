@@ -96,6 +96,7 @@ namespace DebugAPI_IMPL
 		public:
 			void LogMessageVarg(LogMessageType, const char* a_fmt, std::va_list a_argList) override
 			{
+				namespace logger = SKSE::log;
 				std::string fmt(a_fmt ? a_fmt : "");
 				while (!fmt.empty() && fmt.back() == '\n') {
 					fmt.pop_back();
@@ -107,7 +108,7 @@ namespace DebugAPI_IMPL
 				std::vsnprintf(buf.data(), buf.size(), fmt.c_str(), args);
 				va_end(args);
 
-				logger::info("{}"sv, buf.data());
+				logger::info("{}", buf.data());
 			}
 		};
 	};
